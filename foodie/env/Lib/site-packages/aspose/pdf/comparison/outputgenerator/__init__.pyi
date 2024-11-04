@@ -1,0 +1,99 @@
+﻿import aspose.pdf
+import aspose.pydrawing
+import datetime
+import decimal
+import io
+import uuid
+from typing import Iterable
+
+class HtmlDiffOutputGenerator:
+    '''Represents a class for generating html representation of texts differences.
+    Deleted line breaks are indicated by - ¶.'''
+    
+    def __init__(self):
+        ...
+    
+    @property
+    def insert_style(self) -> str:
+        '''Gets and sets the СSS-style string for Insert operation.'''
+        ...
+    
+    @insert_style.setter
+    def insert_style(self, value: str):
+        ...
+    
+    @property
+    def delete_style(self) -> str:
+        '''Gets and sets the СSS-style string for Delete operation.'''
+        ...
+    
+    @delete_style.setter
+    def delete_style(self, value: str):
+        ...
+    
+    @property
+    def strikethrough_deleted(self) -> bool:
+        '''Get or set text-decoration: line-through style for the delete operation.
+        Default value is ``False``.'''
+        ...
+    
+    @strikethrough_deleted.setter
+    def strikethrough_deleted(self, value: bool):
+        ...
+    
+    ...
+
+class IFileOutputGenerator:
+    '''Represents an interface for generating output to a file of differences between texts.'''
+    
+    @overload
+    def generate_output(self, diffrences, target_file_path: str) -> None:
+        ...
+    
+    @overload
+    def generate_output(self, diffrences, target_file_path: str) -> None:
+        ...
+    
+    ...
+
+class IStringOutputGenerator:
+    '''Represents an interface for generating output to a string of differences between texts.'''
+    
+    @overload
+    def generate_output(self, diffrences) -> str:
+        ...
+    
+    @overload
+    def generate_output(self, diffrences) -> str:
+        ...
+    
+    ...
+
+class JsonDiffOutputGenerator:
+    '''Represents a class for displaying the results of comparing PDF documents or pages in JSON format.'''
+    
+    def __init__(self):
+        ...
+    
+    ...
+
+class MarkdownDiffOutputGenerator:
+    '''Represents a class for generating markdown representation of texts differences.
+    Because of the markdown syntax, it is not possible to show changes to whitespace characters.
+    Selection of changes makes adding whitespace characters around formatting,
+    otherwise markdown viewer will not correctly display the text.
+    Deleted line breaks are indicated by - ¶.'''
+    
+    def __init__(self):
+        ...
+    
+    ...
+
+class PdfOutputGenerator:
+    '''Represents a class for generating PDF representation of texts differences.'''
+    
+    def __init__(self):
+        ...
+    
+    ...
+

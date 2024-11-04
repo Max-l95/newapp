@@ -1,0 +1,2 @@
+[console_scripts]
+fattura_elettronica_reader = fattura_elettronica_reader.__main__:main

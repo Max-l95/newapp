@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Comanda n° {{ ordine.id }}</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            margin: 0;
+            padding: 20px; /* Adjust padding as needed */
+            box-sizing: border-box;
+        }
+        .content {
+            height: calc(100vh - 40px); /* Adjust for padding */
+            overflow-y: auto; /* Enable scroll if content exceeds page height */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+		.text-end {
+			text-align: end;
+		}
+
+    </style>
+</head>
+<body>
+    <div align="center">
+        <font size='4'><b>{{ azienda.nome_azienda }}</b></font><br>
+		<font size='-1'>{{ azienda.sede_legale }}</font> <br>
+		<font size='-1'>{{ azienda.cap }} - {{ azienda.comune }} ({{ azienda.provincia }}) </font> <br>
+        <font size='-1'>C.F. {{ azienda.codice_fiscale }}  P.Iva{{ azienda.partita_iva }}</font> <br>
+        <font size='3'>{{ azienda.phone }}</font> <br>
+		<font size='-1'>{{ azienda.mail }}</font> <br>
+        <br>
+    </div>
+    <div class="content">
+        <table>
+            <tr>
+                <td>Cliente: <b>{{ cliente.denominazione }}</b><br>
+                N. tavolo: <b>{% if ordine.table == 0 %} Banco {% else %}{{ ordine.table }}{% endif %}</b></td>
+            </tr>
+			
+            <!-- Add more rows as needed -->
+        </table>
+		<table>
+			<thead>
+				<tr>
+				<th>Descrizione</th>
+				<th>Quantità</th>	
+				</tr>			
+			</thead>
+			<tbody>
+				{% for c in ordine.contenuto %}
+				<tr>
+					<td>{{c['title']}}</td>
+					<td class="text-end">{{c['quantity']}}</td>
+				</tr>
+				{% endfor %}
+
+			</tbody>
+		</table>
+    </div>
+</body>
+</html>
